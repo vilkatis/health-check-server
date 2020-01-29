@@ -19,11 +19,11 @@ export type LogCreator = (logLevel: LogLevel) => LogFunction;
 export const createLogger = ({logLevel = LogLevel.INFO, logCreator}: { logLevel: LogLevel, logCreator: LogCreator }) => {
     const logFunction = logCreator(logLevel);
 
-    const createNamespace = (namespace, logLevel = null) => {
+    const createNamespace = (namespace: string, logLevel: LogLevel = null) => {
         return createLogFunctions(namespace, logLevel);
     };
 
-    const createLogFunctions = (namespace?, namespaceLogLevel = null) => {
+    const createLogFunctions = (namespace?: string, namespaceLogLevel: LogLevel = null) => {
         const currentLogLevel = () => (namespaceLogLevel == null ? logLevel : namespaceLogLevel);
         const logger = {
             info: createLevel('INFO', LogLevel.INFO, currentLogLevel, namespace, logFunction),
@@ -34,7 +34,7 @@ export const createLogger = ({logLevel = LogLevel.INFO, logCreator}: { logLevel:
 
         return Object.assign(logger, {
             namespace: createNamespace,
-            setLogLevel: newLevel => {
+            setLogLevel: (newLevel: LogLevel) => {
                 logLevel = newLevel
             },
         });

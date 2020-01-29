@@ -1,7 +1,7 @@
 import * as net from 'net';
 import { Socket } from 'net';
 import { createLogger, LogCreator, LogLevel } from './logger';
-import { createHealthCheck } from './health-check';
+import { createHealthCheck, HealthStatus } from './health-check';
 
 interface IDeps<T> {
     logCreator: LogCreator,
@@ -9,10 +9,10 @@ interface IDeps<T> {
     monitoredServices: T
 }
 
-type BuildHealthCheckServer = <T>(deps: IDeps<T>) => HealthCheckServer;
+type BuildHealthCheckServer = <T extends Record<string, HealthStatus>>(deps: IDeps<T>) => HealthCheckServer;
 type HealthCheckServer = (tcpPort: number) => any;
 
-export const buildHealthCheckServer: BuildHealthCheckServer = <T>({logCreator, logLevel = LogLevel.INFO, monitoredServices}) => {
+export const buildHealthCheckServer: BuildHealthCheckServer = ({logCreator, logLevel = LogLevel.INFO, monitoredServices}) => {
     const logger = createLogger({logLevel, logCreator}).namespace('HealthCheckServer');
 
     const healthCheck = createHealthCheck(monitoredServices);
