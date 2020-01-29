@@ -4,12 +4,15 @@
   "description": "TCP Health check server to use for health checks in an orchestrated environment",
   "main": "index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "cz": "git-cz"
   },
   "author": "Victor Garbalau",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^13.5.0",
+    "cz-conventional-changelog": "^3.1.0",
+    "husky": "^4.2.1",
     "typescript": "^3.7.5"
   },
   "dependencies": {},
@@ -19,5 +22,15 @@
     "tcp",
     "kubernetes",
     "server"
-  ]
+  ],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  }
 }
