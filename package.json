@@ -1,0 +1,22 @@
+{
+  "name": "healt-check-server",
+  "version": "0.0.0",
+  "description": "TCP Health check server to use for health checks in an orchestrated environment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Victor Garbalau",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^13.5.0"
+  },
+  "dependencies": {},
+  "keywords": [
+    "health",
+    "check",
+    "tcp",
+    "kubernetes",
+    "server"
+  ]
+}
