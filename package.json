@@ -4,7 +4,7 @@
   "description": "TCP Health check server to use for health checks in an orchestrated environment",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "prepare": "npm run build",
+  "prepublishOnly": "npm run build",
   "files": [
     "dist/**/*"
   ],
