@@ -11,7 +11,7 @@
   "scripts": {
     "build": "tsc",
     "commit": "git-cz",
-    "semantic-release": "semantic-release pre"
+    "semantic-release": "semantic-release"
   },
   "author": "Victor Garbalau",
   "license": "MIT",
