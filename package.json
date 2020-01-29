@@ -1,16 +1,20 @@
 {
   "name": "@vilkatis/health-check-server",
-  "version": "0.0.0",
+  "version": "0.0.0-semantically-released",
   "description": "TCP Health check server to use for health checks in an orchestrated environment",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "prepare": "npm run build",
+  "files": ["dist/**/*"],
   "scripts": {
     "build": "tsc",
-    "cz": "git-cz"
+    "commit": "git-cz"
   },
   "author": "Victor Garbalau",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^13.5.0",
+    "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.1.0",
     "husky": "^4.2.1",
     "typescript": "^3.7.5"
