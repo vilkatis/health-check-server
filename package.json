@@ -5,10 +5,13 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "prepare": "npm run build",
-  "files": ["dist/**/*"],
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "build": "tsc",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "semantic-release": "semantic-release pre"
   },
   "author": "Victor Garbalau",
   "license": "MIT",
@@ -17,6 +20,7 @@
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.1.0",
     "husky": "^4.2.1",
+    "semantic-release": "^17.0.1",
     "typescript": "^3.7.5"
   },
   "dependencies": {},
